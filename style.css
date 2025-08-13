@@ -37,7 +37,17 @@ video {
 /* .:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:. .:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:.  */
 /* Storing custom CSS properties */
 /* https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_cascading_variables/Using_CSS_custom_properties */
-
+:root {
+  --co101: rgb(176, 198, 238);
+  --co102: rgb(255, 17, 255);
+  --border: solid 1rem var(--co102);
+}
+@media (prefers-color-scheme: lignt) {
+  :root {
+    --co101: rgb(176, 198, 238);
+    --co102: rgb(255, 17, 255);
+  }
+}
 /* .:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:. .:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:.  */
 /* Intro Modal dialog */
 /* need to apply to open dialog, otherwise flex interferes with closing */
@@ -45,9 +55,9 @@ video {
 dialog[open] {
   margin: auto; /* place in centre */
   padding: 1rem;
-  /* background-color: var(--col01); */
-  /* color: var(--col02); */
-  /* border: var(--border); */
+  background-color: var(--col01);
+  color: var(--col02);
+  border: var(--border);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -65,4 +75,49 @@ dialog::backdrop {
   /* background-color: var(--col01); */
   /* color: var(--col02); */
   padding: 0 1rem;
+}
+
+.keyboardCont {
+  height: 10rem;
+  display: flex;
+}
+.octaveCont {
+  width: 15rem;
+  position: relative;
+}
+.whiteKeyCont {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  align-items: stretch;
+}
+.whiteKey {
+  flex: 1;
+  padding: 0;
+  background-color: var(--c0102);
+}
+.whiteKey:hover {
+  cursor: pointer;
+}
+
+.whiteKey:active {
+  filter: invert();
+}
+.blackKeyCont {
+  position: absolute;
+  top: 0%;
+  display: flex;
+  height: 55%;
+  width: 100%;
+  align-items: stretch;
+  pointer-events: none;
+}
+.blackKey {
+  flex: 1;
+  padding: 0;
+  pointer-events: all;
+  background-color: blue;
+}
+.ghostKey {
+  flex: 0.5;
 }
