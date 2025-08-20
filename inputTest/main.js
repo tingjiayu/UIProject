@@ -1,3 +1,16 @@
+let bodyElement = document.body;
+
+function changeBackgroundColour() {
+  bodyElement.style.backgroundColor = "pink";
+}
+
+let myButton = document.getElementById("exampleButton");
+myButton.addEventListener("click", changeBackgroundColour);
+
+myButton.addEventListener("click", () => {
+  polySynth.triggerAttackRelease("c3", "8n");
+});
+
 ///////////// Button
 
 let buttonOutputText = document.getElementById("buttonOutput");
@@ -45,7 +58,7 @@ let mySineRadio = document.getElementById("sine");
 let myTriangleRadio = document.getElementById("triangle");
 let radioOutputText = document.getElementById("radioOutput");
 
-function listRadioSelection(e){
+function listRadioSelection(e) {
   radioOutputText.textContent = e.target.value;
 }
 
@@ -68,10 +81,8 @@ myRange.addEventListener("input", (e) => {
   rangeOutputText.textContent = e.target.value;
 });
 
-function rangeEditStart(){
-  
-}
-function rangeEditEnd(){
+function rangeEditStart() {}
+function rangeEditEnd() {
   console.log("mouse up event heard");
 }
 
@@ -81,7 +92,7 @@ let colourOutputText = document.getElementById("colourOutput");
 
 myColourPicker.addEventListener("input", listColourOutput);
 
-function listColourOutput(e){
+function listColourOutput(e) {
   colourOutputText.textContent = e.target.value;
   colourOutputText.style.backgroundColor = e.target.value;
   colourOutputText.style.color = `hsl(from ${e.target.value} calc(360 - h) s calc(100 - l))`;
